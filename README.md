@@ -29,3 +29,24 @@ Hemos generado un gráfico interactivo en el que puedes seleccionar múltiples p
 
 Como ejemplo, aquí mostramos la evolución del Top 5 de la última temporada y el piloto con mayor Elo actualmente.
 ![Evolución del Elo del Top5](notebooks/top5.png)
+
+## Puntuación en condiciones de lluvia
+Uno de los factores clave en el transcurso de una carrera puede ser la aparición de lluvia. Las condiciones de la pista cambian drásticamente cuando llueve, afectando significativamente al estilo de conducción necesario para poder rodar rápido y seguro. Las condiciones de mojado suelen favorecer más a unos pilotos que a otros, por lo que hemos querido obtener una comparativa entre el porcentaje de puntos obtenido en carreras en seco con el porcentaje de puntos obtenido en carreras en mojado.
+
+Primero, definimos una carrera en mojado cuando algún piloto haya necesitado montar los neumáticos intermedios o de lluvia. En algunas ocasiones ha sido más beneficioso mantener los neumáticos de seco si quedaban pocas vueltas para finalizar la carrera. Pero si algún piloto ha montado neumáticos intermedios o de lluvia, ya consideramos la carrera en mojado. Hemos calculado 14 carreras (sobre las 74 en total) que pueden ser consideradas en mojado.
+
+Segundo, la proporción de carreras en seco vs carreras en mojado es considerablemente desigual en favor de las carreras en seco. Por lo tanto, es necesario medir el rendimiento en cada condición con un valor relativo. En particular, definimos el porcentaje de puntos obtenido en seco para el piloto $i$, ${P_i^s}$, como
+
+$${P_i^s} = \frac{\sum_{j\in I_i^s} P_{i,j} }{\sum_{j\in I_i^s}P_{max,j}}$$
+
+donde $I_i^s$ son los índices correspondientes a las carreras en seco que ha disputado el piloto $i$, $P_{i,j}$ son los puntos obtenidos por el piloto $i$ en la carrera $j$ y $P_{max,j}$ son los máximos puntos posibles que un piloto puede obtener en la carrera $j$. Similarmente, el porcentaje de puntos obtenido en lluevia para el piloto $i$ es
+
+$${P_i^l} = \frac{\sum_{j\in I_i^l} P_{i,j} }{\sum_{j\in I_i^l}P_{max,j}}$$
+
+donde $I_i^l$ son los índices correspondientes a las carreras en lluvia que ha disputado el piloto $i$.
+
+
+Hemos generado un gráfico donde podemos ver el aumento o reducción del porcentaje de puntos cuando pasamos de seco a lluvia.
+![Porcentaje en lluvia](notebooks/lluvia.png)
+
+También se puede consultar el gráfico interactivo en [https://adriantorres7.github.io/FormulaSpain/notebooks/lluvia.html](https://adriantorres7.github.io/FormulaSpain/notebooks/lluvia.html)
