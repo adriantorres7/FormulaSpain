@@ -20,7 +20,7 @@ Teniendo en cuenta que se tiene que enfrentar a los otros 19 pilotos, su nuevo E
 
 $$R_1' = R_1 + K*(\sum_{j=2}^{20}(S_{1,j}-E_1))$$.
 
-Para calcular el cambio de Elo del piloto 2, se continuará usando R_1. Es decir, las nueva puntuaciones Elo se actualizaran al finalizar el cálculo de todas las variaciones.
+Para calcular el cambio de Elo del piloto 2, se continuará usando $R_1$. Es decir, las nueva puntuaciones Elo se actualizaran al finalizar el cálculo de todas las variaciones.
 
 ### Evolución del Elo a lo largo de tres temporadas
 Inicializamos los valores de estas puntuaciones en 1500, igual que en el ajedrez competivo. Con los datos de las tres temporadas que se han disputado en la liga, podemos obtener una visualización de la evolución del Elo a lo largo de las carreras. Esto muestra el nivel de habilidad relativa de cada piloto y su evolución a lo largo del tiempo. 
@@ -47,6 +47,7 @@ donde $I_i^l$ son los índices correspondientes a las carreras en lluvia que ha 
 
 
 Hemos generado un gráfico donde podemos ver el aumento o reducción del porcentaje de puntos cuando pasamos de seco a lluvia.
+
 ![Porcentaje en lluvia](notebooks/lluvia.png)
 
 También se puede consultar el gráfico interactivo en [https://adriantorres7.github.io/FormulaSpain/notebooks/lluvia.html](https://adriantorres7.github.io/FormulaSpain/notebooks/lluvia.html)
