@@ -197,3 +197,5 @@ cython_debug/
 *.db
 *.db-shm
 *.db-wal
+
+25. export_battles_Barcelona_race.csv
