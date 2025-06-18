@@ -3,9 +3,9 @@
 Análisis y visualización de datos de la liga de F1 Online [Fórmu1aSpain](https://formulaspain1.wordpress.com/).
 
 ## Sistema de puntuación Elo
-El sistema de puntuación Elo es un método para medir el nivel de habilidad relativo entre los participantes de un juego comptetitivo. Se popularizó a partir de su implementación en el ajedrez, pero actualmente se usa para una gran variedad de deportes y juegos competitivos. Normalmente se suele aplicar en contextos de duelo directo (ya sea individualmente o por equipos), donde los posibles resultados son: Victoria, Empate o Derrota. En una competición de carreras como la F1, donde el resultado es la posición final en una clasificación de 20 pilotos, hay varias formas de adaptar el sistema Elo. Aquí implementaremos un análogo directo al método utilizado en ejedrez. 
+El sistema de puntuación Elo es un método para medir el nivel de habilidad relativo entre los participantes de juegos competitivos. Se popularizó a partir de su implementación en el ajedrez, pero actualmente se usa para una gran variedad de deportes y juegos competitivos. Normalmente se suele aplicar en contextos de duelo directo (ya sea individualmente o por equipos), donde los posibles resultados son: Victoria, Empate o Derrota. En una competición de carreras como la F1, donde el resultado es la posición final en una clasificación de 20 pilotos, hay varias formas de adaptar el sistema Elo. Aquí implementaremos un análogo directo al método utilizado en ajedrez. 
 
-Desde el punto de vista de un piloto X, una carrera es una serie de enfrentamientos individuales contra los otros 19 pilotos y el resultado en cada uno de estos duelos depende si la posición final es superior o inferior a la del rival. En cierta medida, una carrera se podría entender como un torneo de ajedrez entre los 20 participantes, en el que todos se enfrentan mutuamente en algún momento. En realidad, debido a los diferentes formatos de carrera, como el formato sprint, y los puntos que se otorgan a la pole position, vuelta rápida y piloto del día, lo que se compara en realidad es el número de puntos obtenidos, con posibilidad de empate.
+Desde el punto de vista de un piloto X, una carrera es una serie de enfrentamientos individuales contra los otros 19 pilotos y el resultado en cada uno de estos duelos depende si la posición final es superior o inferior a la del rival. En cierta medida, una carrera se podría entender como un torneo de ajedrez entre los 20 participantes, en el que todos se enfrentan mutuamente en algún momento. En realidad, debido a los diferentes formatos de carrera, como el formato sprint, y los puntos que se otorgan a la pole position, vuelta rápida y piloto del día, lo que compararemos es el número de puntos obtenidos en la totalidad del evento, con posibilidad de empate.
 
 Sean $\{R_{1},...,R_{20}\}$ las puntuaciones Elo de los 20 pilotos antes de la carrera. Pongamos como ejemplo al piloto $1$, con un Elo de $R_1$. En su duelo particular contra el piloto $j$, con un Elo de $R_j$, tiene una puntuación esperada de
 
@@ -31,9 +31,9 @@ Como ejemplo, aquí mostramos la evolución del Top 5 de la última temporada y 
 ![Evolución del Elo del Top5](notebooks/top5.png)
 
 ## Puntuación en condiciones de lluvia
-Uno de los factores clave en el transcurso de una carrera puede ser la aparición de lluvia. Las condiciones de la pista cambian drásticamente cuando llueve, afectando significativamente al estilo de conducción necesario para poder rodar rápido y seguro. Las condiciones de mojado suelen favorecer más a unos pilotos que a otros, por lo que hemos querido obtener una comparativa entre el porcentaje de puntos obtenido en carreras en seco con el porcentaje de puntos obtenido en carreras en mojado.
+Uno de los factores clave en el transcurso de una carrera puede ser la aparición de lluvia. Las condiciones de la pista cambian drásticamente cuando llueve, afectando significativamente al estilo de conducción necesario para poder rodar rápido y seguro. Las condiciones de mojado suelen favorecer más a unos pilotos que a otros, por lo que hemos querido obtener una comparativa entre el porcentaje de puntos obtenido en carreras en seco y el porcentaje de puntos obtenido en carreras en mojado.
 
-Primero, definimos una carrera en mojado cuando algún piloto haya necesitado montar los neumáticos intermedios o de lluvia. En algunas ocasiones ha sido más beneficioso mantener los neumáticos de seco si quedaban pocas vueltas para finalizar la carrera. Pero si algún piloto ha montado neumáticos intermedios o de lluvia, ya consideramos la carrera en mojado. Hemos calculado 14 carreras (sobre las 74 en total) que pueden ser consideradas en mojado.
+Primero, definimos una carrera en mojado cuando algún piloto haya necesitado montar los neumáticos intermedios o de lluvia. En algunas ocasiones ha podido ser más beneficioso mantener los neumáticos de seco si quedaban pocas vueltas para finalizar la carrera. Pero si algún piloto ha montado neumáticos intermedios o de lluvia, ya consideraremos la carrera en mojado. Bajo este criterio, hemos calculado 14 carreras (sobre las 74 en total) que pueden ser consideradas en mojado.
 
 Segundo, la proporción de carreras en seco vs carreras en mojado es considerablemente desigual en favor de las carreras en seco. Por lo tanto, es necesario medir el rendimiento en cada condición con un valor relativo. En particular, definimos el porcentaje de puntos obtenido en seco para el piloto $i$, ${P_i^s}$, como
 
@@ -45,8 +45,7 @@ $${P_i^l} = \frac{\sum_{j\in I_i^l} P_{i,j} }{\sum_{j\in I_i^l}P_{max,j}}$$
 
 donde $I_i^l$ son los índices correspondientes a las carreras en lluvia que ha disputado el piloto $i$.
 
-
-Hemos generado un gráfico donde podemos ver el aumento o reducción del porcentaje de puntos cuando pasamos de seco a lluvia.
+Hemos generado un gráfico donde podemos ver el aumento o reducción del porcentaje de puntos de cada piloto cuando pasamos de seco a lluvia.
 
 ![Porcentaje en lluvia](notebooks/lluvia.png)
 
