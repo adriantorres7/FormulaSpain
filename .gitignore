@@ -199,3 +199,5 @@ cython_debug/
 *.db-wal
 
 25. export_battles_Barcelona_race.csv
+data/Batallas
+data/Vuelta a vuelta
