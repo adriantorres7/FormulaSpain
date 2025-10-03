@@ -25,7 +25,7 @@ Para calcular el cambio de Elo del piloto 2, se continuará usando $R_1$. Es dec
 ### Evolución del Elo a lo largo de tres temporadas
 Inicializamos los valores de estas puntuaciones en 1500, igual que en el ajedrez competivo. Con los datos de las tres temporadas que se han disputado en la liga, podemos obtener una visualización de la evolución del Elo a lo largo de las carreras. Esto muestra el nivel de habilidad relativa de cada piloto y su evolución a lo largo del tiempo. 
 
-Hemos generado un gráfico interactivo en el que puedes seleccionar múltiples pilotos en la leyenda y comparar la evolución de su habilidad relativa a lo largo de estas tres temporadas [Ver gráfico interactivo](https://adriantorres7.github.io/FormulaSpain/notebooks/eloTemporadas.html).
+Hemos generado un gráfico interactivo en el que puedes seleccionar múltiples pilotos en la leyenda y comparar la evolución de su habilidad relativa a lo largo de los 76 grandes premios disputados [Ver gráfico interactivo](https://adriantorres7.github.io/FormulaSpain/notebooks/eloTemporadas.html). También se puede visualizar la temporada 3 y el comienzo de la temporada 4 [Ver gráfico interactivo](https://adriantorres7.github.io/FormulaSpain/notebooks/eloTemporada34.html).
 
 Como ejemplo, aquí mostramos la evolución del Top 5 de la última temporada y el piloto con mayor Elo actualmente.
 ![Evolución del Elo del Top5](notebooks/top5.png)
